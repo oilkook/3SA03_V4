@@ -40,8 +40,9 @@ export default function WordCard(props) {
         if (guess.length == state.word.length) {
             if (guess == state.word) {
                 console.log('yeah!')
-                alert(' Correct!!! ')
+                alert(' HELLO\n Correct!!! ') 
                 setState({ ...state, guess: '', completed: true })
+                refreshPage()
             } else {
                 console.log('reset')
                 setState({ ...state, guess: '', attempt: state.attempt + 1 })
@@ -51,10 +52,12 @@ export default function WordCard(props) {
     }
     return (
         <div>
-            {Array.from(state.chars).map((c, i) => <CharacterCard value={c} key={i}
+            {Array.from(state.chars).map((c, i) => 
+                <CharacterCard value={c} key={i}
                 activationHandler={activationHandler}
                 attempt={state.attempt} />)}
         </div>
     );
 }
+
 
